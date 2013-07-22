@@ -5,6 +5,11 @@
  * Time: 21:17
  * To change this template use File | Settings | File Templates.
  */
+
+//=============================
+// e-mail -> nik.scrp@gmail.com
+//=============================
+
 import java.util.Scanner;
 import java.util.Random;
 
