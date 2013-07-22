@@ -64,12 +64,12 @@ public class TicTacToe {
         }
     }
 
-    private void setChar (char symbol, int row, int col) throws CellNotFreeExсeption
+    private void setChar (char symbol, int row, int col) throws CellNotFreeException
     {
         try
         {
             if (grid[row][col] != DEFAULT_CHAR)
-                throw new CellNotFreeExсeption();
+                throw new CellNotFreeException();
 
             grid[row][col] = symbol;
         }
@@ -78,7 +78,7 @@ public class TicTacToe {
             System.out.println("Опаньки! Неправильный индекс ячейки!");
             throw e;
         }
-        catch (CellNotFreeExсeption e)
+        catch (CellNotFreeException e)
         {
             System.out.println("Внезапно! Ячейка уже занята!");
             throw e;
