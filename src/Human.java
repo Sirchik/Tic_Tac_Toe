@@ -22,13 +22,26 @@ public class Human {
     public void move () {
         int row;
         int col;
-
+        boolean endMove = true;
         do {
             System.out.print(name + " введите номер строки -> ");
             row = input.nextInt();
             System.out.print(name + " введите номер столбца -> ");
             col = input.nextInt();
-        } while (!game.makeMove(symbolForGame, row, col));
+
+            try {
+                endMove = game.makeMove(symbolForGame, row, col);
+            }
+            catch (IndexOutOfBoundsException e) {
+                System.out.println("Опаньки! Неправильный индекс ячейки!");
+                continue;
+            }
+            catch (CellNotFreeException e) {
+                System.out.println("Внезапно! Ячейка уже занята!");
+                continue;
+            }
+
+        } while (!endMove);
     }
 
     public char getSymbolForGame() {

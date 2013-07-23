@@ -6,12 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 public class CellNotFreeException extends  Exception {
-    public CellNotFreeException()
-    {
+    public CellNotFreeException() {
         super();
     }
-    public CellNotFreeException(String message)
-    {
+    public CellNotFreeException(String message) {
         super(message);
     }
 }

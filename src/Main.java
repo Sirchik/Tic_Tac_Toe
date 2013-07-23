@@ -11,30 +11,29 @@
 //=============================
 
 import java.util.Scanner;
-import java.util.Random;
+
 
 public class Main {
-    public  static void main(String[] args)
-    {
+    public  static void main(String[] args) {
         TicTacToe game = new TicTacToe();
         Human player1 = new Human("Bob", 'X', game);
-        Human player2 = new Human("Walter", 'Y', game);
+        Computer comp = new Computer('Y', game);
         GameStatus status = GameStatus.PLAY;
         Scanner input = new Scanner(System.in);
 
         System.out.println();
         game.drawGrid();
-        while (true)
-        {
+        while (true) {
             player1.move();
             game.drawGrid();
             if (player1.gameOver()) {
                 break;
             }
 
-            player2.move();
+            System.out.println("Ход компьютера");
+            comp.move();
             game.drawGrid();
-            if (player2.gameOver()) {
+            if (comp.gameOver()) {
                 break;
             }
 
