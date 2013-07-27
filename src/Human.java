@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,16 +7,12 @@ import java.util.Scanner;
  * Time: 13:21
  * To change this template use File | Settings | File Templates.
  */
-public class Human {
-    private String name;
-    private char symbolForGame;
-    private TicTacToe game;
+public class Human extends AbstractPlayer {
+
     private Scanner input = new Scanner(System.in);
 
-    Human(String in_name, char ch, TicTacToe in_game) {
-        name = in_name;
-        symbolForGame = ch;
-        game = in_game;
+    Human(String in_name, char ch, Grid in_game) {
+        super(in_name, ch, in_game);
     }
 
     public void move () {
@@ -25,41 +21,39 @@ public class Human {
         boolean endMove = true;
         do {
             System.out.print(name + " введите номер строки -> ");
-            row = input.nextInt();
+            if (input.hasNextInt())
+                row = input.nextInt();
+            else {
+                input.next();
+                endMove = false;
+                continue;
+            }
             System.out.print(name + " введите номер столбца -> ");
-            col = input.nextInt();
+            if (input.hasNextInt())
+                col = input.nextInt();
+            else  {
+                input.next();
+                endMove = false;
+                continue;
+            }
 
             try {
-                endMove = game.makeMove(symbolForGame, row, col);
+                endMove = game.setChar(symbolForGame, row, col);
             }
             catch (IndexOutOfBoundsException e) {
                 System.out.println("Опаньки! Неправильный индекс ячейки!");
+                endMove = false;
                 continue;
             }
             catch (CellNotFreeException e) {
                 System.out.println("Внезапно! Ячейка уже занята!");
+                endMove = false;
                 continue;
             }
 
         } while (!endMove);
     }
 
-    public char getSymbolForGame() {
-        return symbolForGame;
-    }
 
-    public boolean gameOver () {
-        GameStatus status = game.checkWin(symbolForGame);
-        if (status == GameStatus.WIN) {
-            System.out.println(name + " выйграл!");
-            return true;
-        }
-        else if (status == GameStatus.STANDOFF) {
-            System.out.println("Ничья!");
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
 }
