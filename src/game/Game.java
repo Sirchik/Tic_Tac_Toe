@@ -12,6 +12,10 @@ public class Game {
     private AbstractPlayer player1 = null;
     private AbstractPlayer player2 = null;
 
+    private final char symbolX = 'X';
+    private final char symbolO = 'O';
+
+
     public void startGame() {
         System.out.println("******Игра Крестики-Нолики******");
 
@@ -95,12 +99,12 @@ public class Game {
            break;
            case 2: {
                player1 = newHuman(1);
-               player2 = new Computer("Comp", 'Y', grid);
+               player2 = new Computer("Comp", symbolO, grid);
            }
            break;
            case 3: {
-               player1 = new Computer("Comp1", 'X', grid);
-               player2 = new Computer("Comp2", 'Y', grid);
+               player1 = new Computer("Comp1", symbolX, grid);
+               player2 = new Computer("Comp2", symbolO, grid);
            }
            break;
 
@@ -111,15 +115,15 @@ public class Game {
         System.out.print("Игрок №" + index + " введите свое имя -> ");
         String  name = input.next();
         if (player1 == null)
-            return new Human(name, 'X', grid);
+            return new Human(name, symbolX, grid);
         else
-            return new Human(name, 'Y', grid);
+            return new Human(name, symbolO, grid);
     }
 
     private boolean gameOver (AbstractPlayer player) {
         GameStatus status = gameChecker.checkWin(player.getSymbolForGame());
         if (status == GameStatus.WIN) {
-            System.out.println(player.getName() + " выйграл!");
+            System.out.println(player.getName() + " победил!");
             return true;
         }
         else if (status == GameStatus.STANDOFF) {
