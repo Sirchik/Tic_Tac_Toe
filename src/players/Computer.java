@@ -1,18 +1,14 @@
-/**
- * Created with IntelliJ IDEA.
- * User: scorp
- * Date: 22.07.13
- * Time: 18:48
- * To change this template use File | Settings | File Templates.
- */
+package players;
+
 import java.util.Random;
+import grid.Grid;
 
 public class Computer extends AbstractPlayer {
 
     private final char EMPTY_SYMBOL = Grid.DEFAULT_CHAR;
     private char enemySymbol = Grid.DEFAULT_CHAR;
 
-    Computer(String in_name, char ch, Grid in_game) {
+    public Computer(String in_name, char ch, Grid in_game) {
         super(in_name, ch, in_game);
     }
 

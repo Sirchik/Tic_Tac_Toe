@@ -1,17 +1,13 @@
-import java.util.*;
+package players;
 
-/**
- * Created with IntelliJ IDEA.
- * User: scorp
- * Date: 22.07.13
- * Time: 13:21
- * To change this template use File | Settings | File Templates.
- */
+import java.util.*;
+import grid.*;
+
 public class Human extends AbstractPlayer {
 
     private Scanner input = new Scanner(System.in);
 
-    Human(String in_name, char ch, Grid in_game) {
+    public Human(String in_name, char ch, Grid in_game) {
         super(in_name, ch, in_game);
     }
 

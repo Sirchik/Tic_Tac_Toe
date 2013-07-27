@@ -1,23 +1,15 @@
-/**
- * Created with IntelliJ IDEA.
- * User: scorp
- * Date: 21.07.13
- * Time: 20:52
- * To change this template use File | Settings | File Templates.
- */
-
-
+package grid;
 
 public class Grid {
     private int gridSize = 3;
     private char[][] grid;
     public static final char DEFAULT_CHAR = ' ';
 
-    Grid() {
+    public Grid() {
        this(3);
     }
 
-    Grid(int size) {
+    public Grid(int size) {
         if (size > 3) {
             gridSize = size;
         }

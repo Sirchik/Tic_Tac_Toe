@@ -1,10 +1,7 @@
-/**
- * Created with IntelliJ IDEA.
- * User: scorp
- * Date: 27.07.13
- * Time: 19:18
- * To change this template use File | Settings | File Templates.
- */
+package players;
+
+import grid.Grid;
+
 public abstract class AbstractPlayer implements IPlayer {
     protected String name;
     protected char symbolForGame;

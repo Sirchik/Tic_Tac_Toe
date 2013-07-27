@@ -1,10 +1,7 @@
-/**
- * Created with IntelliJ IDEA.
- * User: scorp
- * Date: 27.07.13
- * Time: 17:35
- * To change this template use File | Settings | File Templates.
- */
+package game;
+
+import grid.Grid;
+
 enum GameStatus {WIN, PLAY, STANDOFF}
 
 public class GameChecker {
